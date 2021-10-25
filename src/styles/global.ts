@@ -59,6 +59,8 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
   }
   
   .react-modal-content {
@@ -68,5 +70,22 @@ export const GlobalStyle = createGlobalStyle`
     padding: 3rem;
     position: relative;
     border-radius: 0.25rem;
+  }
+
+  .react-modal-close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    border: none;
+    background: none;
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+  }
+  
+  .ReactModal__Overlay--after-open{
+    opacity: 1;
   }
 `;
