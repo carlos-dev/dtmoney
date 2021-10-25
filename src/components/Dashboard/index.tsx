@@ -1,5 +1,5 @@
 import {Summary} from '../Summary'
-import { TransactionsTable } from '../transactionsTable';
+import { TransactionsTable } from '../TransactionsTable';
 
 import * as S from './styles';
 
