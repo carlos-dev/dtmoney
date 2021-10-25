@@ -44,7 +44,8 @@ export const GlobalStyle = createGlobalStyle`
     cursor: not-allowed;
   }
 
-  p, button, a, input, textarea, strong {
+  body, input, textarea, button {
     font-family: 'Poppins', sans-serif;
+    font-weight: 400;
   }
 `;
