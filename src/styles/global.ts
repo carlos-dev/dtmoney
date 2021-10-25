@@ -1,4 +1,4 @@
-import styled, {createGlobalStyle} from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -42,5 +42,9 @@ export const GlobalStyle = createGlobalStyle`
   [disbled] {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+
+  p, button, a, input, textarea, strong {
+    font-family: 'Poppins', sans-serif;
   }
 `;
