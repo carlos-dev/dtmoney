@@ -6,7 +6,7 @@ import { TransactionsContext } from '../../TransactionsContext';
 import * as S from './styles';
 
 export function TransactionsTable() {
-  const transactions = useContext(TransactionsContext);
+  const {transactions} = useContext(TransactionsContext);
   
   return (
     <S.Container>
