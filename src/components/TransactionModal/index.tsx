@@ -1,14 +1,14 @@
-import React, { useState, FormEvent, useEffect, useContext } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import Modal from 'react-modal';
 
-import { TransactionsContext } from '../../TransactionsContext';
 
 import * as S from './styles';
 
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import closeImg from '../../assets/close.svg';
-import { api } from '../../services/api';
+
+import { useTransactions } from '../../hooks/useTransactions';
 
 interface TransactionModalProps {
   isOpen: boolean;
@@ -16,7 +16,7 @@ interface TransactionModalProps {
 }
 
 export function TransactionModal({isOpen, onRequestClose}: TransactionModalProps) {
-  const {createTransaction} = useContext(TransactionsContext);
+  const {createTransaction} = useTransactions();
 
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState(0);
@@ -27,15 +27,22 @@ export function TransactionModal({isOpen, onRequestClose}: TransactionModalProps
     Modal.setAppElement('body');
   }, [])
 
-  function handleCreateTransaction(event: FormEvent) {
+  async function handleCreateTransaction(event: FormEvent) {
     event.preventDefault();
 
-    createTransaction({
+    await createTransaction({
       title,
       amount,
       category,
       type,
-    })
+    });
+
+    setTitle('');
+    setAmount(0);
+    setCategory('');
+    setType('deposit');
+
+    onRequestClose();
   }
 
   return (
